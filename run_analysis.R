@@ -14,15 +14,12 @@ subject_train <- read.table("subject_train.txt")
 
 
 #Get Mean and Standard Deviation Index
-means <- c(1,2,3,41,42,43,81,82,83,121,122,123,161,162,163,201,214,227,240,253,266,267,268,345,346,347,424,425,426,502,516,529,542)
-stds <- c(4,5,6,44,45,46,84,85,86,124,125,126,164,165,166,202,215,228,241,254,269,270,271,348,349,350,427,428,429,504,517,530,543)
-variables<-c(means,stds)
+variables<- c(grep("mean\\(\\)",features[,2]), grep("std\\(\\)",features[,2]))
 
 
 
 #Get activity labels and variable names
-names <- as.character(features[variables,2])
-variable_names <- c(names, "activity")
+variable_names <- c(as.character(features[variables,2]), "activity")
 
 
 
